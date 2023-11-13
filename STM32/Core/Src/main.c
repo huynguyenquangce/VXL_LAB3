@@ -67,7 +67,7 @@ static void MX_TIM2_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -99,7 +99,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  if(isButton1Pressed() == 1)
+	  {
+		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
