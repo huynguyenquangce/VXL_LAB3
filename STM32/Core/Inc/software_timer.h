@@ -1,17 +1,25 @@
 /*
  * software_timer.h
  *
- *  Created on: Nov 11, 2023
+ *  Created on: Nov 14, 2023
  *      Author: admin
  */
 
 #ifndef INC_SOFTWARE_TIMER_H_
 #define INC_SOFTWARE_TIMER_H_
 
+
 extern int timer1_flag;
-extern int timer1_counter;
-
 void setTimer1(int duration);
-void timerRun();
+extern int timer2_flag;
+void setTimer2(int duration);
+extern int timer3_flag;
+void setTimer3(int duration);
+extern int timer4_flag;
+void setTimer4(int duration);
+extern int timer5_flag;
+void setTimer5(int duration);
 
+
+void timerRun();
 #endif /* INC_SOFTWARE_TIMER_H_ */
