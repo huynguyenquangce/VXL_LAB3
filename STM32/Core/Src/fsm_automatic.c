@@ -6,7 +6,7 @@
  */
 #include "fsm_automatic.h"
 
-void fsm_automatic_run()
+void fsm_automatic1_run()
 {
 	switch(status)
 	{
