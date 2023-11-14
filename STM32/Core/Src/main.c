@@ -22,6 +22,8 @@
 #include "button.h"
 #include "software_timer.h"
 #include "fsm_automatic.h"
+#include "display7SEG.h"
+#include "displayLED.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
