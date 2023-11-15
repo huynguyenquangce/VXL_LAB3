@@ -1,15 +1,16 @@
 /*
- * display7SEG.h
+ * display_7seg.h
  *
- *  Created on: Nov 14, 2023
+ *  Created on: Nov 2, 2023
  *      Author: admin
  */
 
-#ifndef INC_DISPLAY7SEG_H_
-#define INC_DISPLAY7SEG_H_
+#ifndef INC_DISPLAY_7SEG_H_
+#define INC_DISPLAY_7SEG_H_
 
 #include "global.h"
-void display7SEG(int number);
-void update7SEG(int index);
-void updateClockBuffer();
-#endif /* INC_DISPLAY7SEG_H_ */
+
+void display(int value);
+void scanled(int idx);
+void update_buffer();
+#endif /* INC_DISPLAY_7SEG_H_ */

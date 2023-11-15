@@ -19,11 +19,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "button.h"
-#include "software_timer.h"
-#include "display7SEG.h"
-#include "global.h"
-#include "traffic.h"
 #include "fsm_automatic.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -101,25 +96,28 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 //  setTimer1(100);
 //  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, RESET);
-  int status1 = INIT;
-  int status2 = INIT;
-  int index = 0;
-  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
-  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
-  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
-  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
-  while (1)
-  {
-    /* USER CODE END WHILE */
-	  fsm_automatic1_run();
-	  fsm_automatic2_run();
-	  if(timer4_flag == 1)
-	  {
-		  setTimer4(20);
-		  if(index>=4) index = 0;
-		  update7SEG(index);
-		  index++;
-	  }
+  	status1 = INIT;
+    status2 = INIT;
+    int led_idx = 0;
+    HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+    HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+    HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+    HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
+    setTimer4(10);
+    while (1)
+    {
+      /* USER CODE END WHILE */
+  	  fsm_automatic1_run();
+  	  fsm_automatic2_run();
+//  	  fsm_manual_run();
+  	  if (timer4_flag == 1){
+  		  setTimer4(10);
+  		  if (led_idx >= 4) led_idx = 0;
+  		  scanled(led_idx);
+  		  led_idx++;
+  	  }
+      /* USER CODE BEGIN 3 */
+    }
     /* USER CODE BEGIN 3 */
 //	  if(timer1_flag == 1)
 //	  {
@@ -128,7 +126,6 @@ int main(void)
 //	  }
   }
   /* USER CODE END 3 */
-}
 
 /**
   * @brief System Clock Configuration
@@ -270,8 +267,15 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	timerRun();
-	updateClockBuffer();
+	timer1Run();
+	timer2Run();
+	timer3Run();
+	timer4Run();
+	timer5Run();
+//	getKeyInput1();
+//	getKeyInput2();
+//	getKeyInput3();
+	update_buffer();
 }
 /* USER CODE END 4 */
 

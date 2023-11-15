@@ -1,7 +1,7 @@
 /*
  * fsm_automatic.h
  *
- *  Created on: Nov 14, 2023
+ *  Created on: 13 thg 11, 2023
  *      Author: admin
  */
 
@@ -12,4 +12,5 @@
 
 void fsm_automatic1_run();
 void fsm_automatic2_run();
+
 #endif /* INC_FSM_AUTOMATIC_H_ */

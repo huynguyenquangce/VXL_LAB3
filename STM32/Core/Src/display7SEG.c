@@ -8,14 +8,14 @@
 #include "display7SEG.h"
 #include "main.h"
 
-void updateClockBuffer() {
-	clockBuffer[0] = counter1/10;
-	clockBuffer[1] = counter1%10;
-	clockBuffer[2] = counter2/10;
-	clockBuffer[3] = counter2%10;
+void update_buffer(){
+	led_buffer[0] = counter1/10;
+	led_buffer[1] = counter1%10;
+	led_buffer[2] = counter2/10;
+	led_buffer[3] = counter2%10;
 }
 
-void display7SEG(int value)
+void display(int value)
 {
 	switch (value) {
 		case 0:
@@ -114,35 +114,35 @@ void display7SEG(int value)
 }
 
 
-void update7SEG ( int index ) {
+void scanled( int index ) {
 	switch ( index ) {
 	case 0:
 		  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 		  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 		  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
 		  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
-		  display7SEG(clockBuffer[0]);
+		  display(led_buffer[0]);
 		break ;
 	case 1:
 		  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
 		  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
 		  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
 		  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
-		display7SEG(clockBuffer[1]);
+		  display(led_buffer[1]);
 		break ;
 	case 2:
 		  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
 		  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 		  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, RESET);
 		  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
-		display7SEG(clockBuffer[2]);
+		  display(led_buffer[2]);
 		break ;
 	case 3:
 		  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
 		  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 		  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
 		  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
-		display7SEG(clockBuffer[3]);
+		  display(led_buffer[3]);
 		break ;
 	default :
 		break ;

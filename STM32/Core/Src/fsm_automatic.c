@@ -5,7 +5,7 @@
  *      Author: admin
  */
 #include "fsm_automatic.h"
-
+#include "global.h"
 void fsm_automatic1_run(){
 	switch (status1) {
 		case INIT:
