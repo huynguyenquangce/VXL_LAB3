@@ -2,8 +2,9 @@
  * global.c
  *
  *  Created on: 13 thg 11, 2023
- *      Author: DELL F89F
+ *      Author: admin
  */
+#include "global.h"
 int status1 = 0, status2 = 0;
 int red_time = 500, green_time = 300, yellow_time = 200;
 int duration = 100;

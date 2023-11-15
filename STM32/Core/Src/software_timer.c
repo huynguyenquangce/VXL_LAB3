@@ -2,7 +2,7 @@
  * softwareTimer.c
  *
  *  Created on: Nov 2, 2023
- *      Author: DELL F89F
+ *      Author: admin
  */
 
 #include "software_timer.h"
