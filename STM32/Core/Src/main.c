@@ -109,6 +109,12 @@ int main(void)
       /* USER CODE END WHILE */
   	  fsm_automatic1_run();
   	  fsm_automatic2_run();
+  	  if(isButton1Pressed() == 1)
+  	  {
+  		  HAL_GPIO_WritePin(LED_RED1_GPIO_Port, LED_RED1_Pin, RESET);
+  		  HAL_GPIO_WritePin(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, RESET);
+  		  HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, RESET);
+  	  }
 //  	  fsm_manual_run();
   	  if (timer4_flag == 1){
   		  setTimer4(10);
@@ -272,7 +278,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	timer3Run();
 	timer4Run();
 	timer5Run();
-//	getKeyInput1();
+	getKeyInput1();
 //	getKeyInput2();
 //	getKeyInput3();
 	update_buffer();
